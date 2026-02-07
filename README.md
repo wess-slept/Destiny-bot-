@@ -3,7 +3,7 @@
 Bem-vindo ao **Destiny Bot**, um bot para Discord criado para melhorar a experiência dos servidores!  
 
 ## Sobre o Bot
-- **Dono:** We ss  
+- **Dono:** ʷᵉˢˢ 命  
 - **Comandos:** Moderação, mensagens automáticas, comandos personalizados  
 - **24/7:** Sim  
 - **Linguagem:** JavaScript  
