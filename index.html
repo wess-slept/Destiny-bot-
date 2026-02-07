@@ -3,146 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Destiny Bot 🥀</title>
+<title>Destiny Bot 🥀 Premium</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{
-    font-family:'Poppins',sans-serif;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    position:relative;
-    background: linear-gradient(270deg,#b30000,#ff6666,#ff1a1a);
-    background-size:600% 600%;
-    animation: gradientBG 15s ease infinite;
-  }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Poppins',sans-serif;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  background: linear-gradient(270deg,#b30000,#ff0000,#ff6666,#ff1a1a);
+  background-size:800% 800%;
+  animation: gradientBG 20s ease infinite;
+}
 
-  @keyframes gradientBG{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-  }
+@keyframes gradientBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
 
-  /* Flocos de neve animados */
-  .flake{
-    position:absolute;
-    top:-50px;
-    font-size:15px;
-    user-select:none;
-    pointer-events:none;
-    opacity:0.8;
-    animation-name:fallSpin;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-  @keyframes fallSpin{
-    0%{transform: translateY(-50px) rotate(0deg);}
-    100%{transform: translateY(110vh) rotate(360deg);}
-  }
+/* Flocos de neve animados */
+.flake{
+  position:absolute;
+  top:-50px;
+  user-select:none;
+  pointer-events:none;
+  color:white;
+  text-shadow:0 0 8px rgba(255,255,255,0.8);
+  opacity:0.8;
+  animation-name:fallSpin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes fallSpin{
+  0%{transform: translateY(-50px) rotate(0deg);}
+  100%{transform: translateY(110vh) rotate(360deg);}
+}
 
-  /* Bolha central animada */
-  .bubble{
-    background-color: rgba(255,180,180,0.9);
-    border-radius:50px;
-    padding:50px 30px;
-    max-width:450px;
-    width:90%;
-    box-shadow:0 20px 50px rgba(0,0,0,0.35);
-    position:relative;
-    z-index:1;
-    text-align:center;
-    transform: scale(0);
-    opacity:0;
-    animation: bubbleIn 0.8s forwards;
-  }
-  @keyframes bubbleIn{
-    0%{opacity:0; transform: scale(0);}
-    60%{opacity:1; transform: scale(1.05);}
-    100%{transform: scale(1);}
-  }
+/* Bolha central visível e premium */
+.bubble{
+  background-color: rgba(255,220,220,1); /* fundo mais opaco */
+  border-radius:50px;
+  padding:50px 30px;
+  max-width:450px;
+  width:90%;
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.45),
+    0 0 30px rgba(255,0,0,0.6) inset,
+    0 0 25px rgba(255,255,255,0.5);
+  position:relative;
+  z-index:2;
+  text-align:center;
+  transform: scale(0);
+  opacity:0;
+  animation: bubbleIn 1s forwards;
+}
+@keyframes bubbleIn{
+  0%{opacity:0; transform: scale(0);}
+  60%{opacity:1; transform: scale(1.05);}
+  100%{transform: scale(1);}
+}
 
-  .profile{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:15px;
-  }
-  .profile img{
-    width:140px;
-    height:140px;
-    border-radius:50%;
-    border:5px solid #ff1a1a;
-    object-fit:cover;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .profile img:hover{
-    transform: scale(1.1) rotate(5deg);
-    box-shadow:0 0 25px rgba(255,0,0,0.6);
-  }
-  .profile h2{
-    font-size:2rem;
-    color:#330000;
-  }
+.profile{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+}
+.profile img{
+  width:140px;
+  height:140px;
+  border-radius:50%;
+  border:5px solid #ff1a1a;
+  object-fit:cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.profile img:hover{
+  transform: scale(1.1) rotate(5deg);
+  box-shadow:0 0 35px rgba(255,0,0,0.8);
+}
+.profile h2{
+  font-size:2rem;
+  color:#330000;
+  text-shadow:0 0 8px rgba(255,255,255,0.6);
+}
 
-  /* Botões lado a lado */
-  .buttons{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    margin-top:20px;
-    flex-wrap:wrap;
-  }
-  .btn{
-    flex:1;
-    background: linear-gradient(45deg,#ff4d4d,#ff1a1a);
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:30px;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-    text-decoration:none;
-    display:inline-block;
-    position:relative;
-    overflow:hidden;
-    transition: all 0.4s ease;
-    box-shadow:0 5px 25px rgba(0,0,0,0.35);
-  }
-  .btn:hover{
-    transform: translateY(-5px);
-    box-shadow:0 15px 30px rgba(0,0,0,0.5);
-  }
+/* Botões lado a lado com efeito premium */
+.buttons{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+.btn{
+  flex:1;
+  background: linear-gradient(45deg,#ff4d4d,#ff1a1a);
+  color:white;
+  border:none;
+  padding:12px 25px;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 5px 25px rgba(0,0,0,0.45);
+  transition: all 0.4s ease;
+}
+.btn::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-75%;
+  width:50%;
+  height:100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-25deg);
+  transition: all 0.5s ease;
+}
+.btn:hover::before{
+  left:125%;
+}
+.btn:hover{
+  transform: translateY(-5px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(255,0,0,0.7) inset;
+}
 
-  /* Descrição animada */
-  #descricao{
-    display:none;
-    margin-top:25px;
-    background-color: rgba(255,200,200,0.85);
-    padding:25px;
-    border-radius:30px;
-    color:#330000;
-    font-size:14px;
-    line-height:1.6;
-    text-align:left;
-    max-height:0;
-    overflow:hidden;
-    transition: all 0.5s ease;
-  }
-  #descricao.show{
-    display:block;
-    max-height:500px;
-  }
+/* Descrição animada */
+#descricao{
+  display:none;
+  margin-top:25px;
+  background-color: rgba(255,200,200,0.9);
+  padding:25px;
+  border-radius:30px;
+  color:#330000;
+  font-size:14px;
+  line-height:1.6;
+  text-align:left;
+  max-height:0;
+  overflow:hidden;
+  transition: all 0.5s ease;
+  box-shadow:0 0 20px rgba(255,0,0,0.3);
+}
+#descricao.show{
+  display:block;
+  max-height:500px;
+}
 
-  @media(max-width:500px){
-    .bubble{padding:40px 20px;}
-    .profile h2{font-size:1.6rem;}
-    .btn{font-size:14px;padding:10px 20px;}
-    #descricao{font-size:13px;}
-  }
+@media(max-width:500px){
+  .bubble{padding:40px 20px;}
+  .profile h2{font-size:1.6rem;}
+  .btn{font-size:14px;padding:10px 20px;}
+  #descricao{font-size:13px;}
+}
 </style>
 </head>
 <body>
@@ -166,24 +185,25 @@
 </div>
 
 <script>
-  function toggleDescricao(){
-    const desc = document.getElementById('descricao');
-    desc.classList.toggle('show');
-  }
+function toggleDescricao(){
+  const desc = document.getElementById('descricao');
+  desc.classList.toggle('show');
+}
 
-  // Criar flocos de neve animados
-  const numFlakes = 80;
-  for(let i=0;i<numFlakes;i++){
-    const flake = document.createElement('div');
-    flake.className = 'flake';
-    flake.style.left = Math.random()*100+'vw';
-    flake.style.fontSize = Math.random()*15 + 10 +'px';
-    flake.style.animationDuration = (5 + Math.random()*7)+'s';
-    flake.style.opacity = Math.random();
-    flake.style.animationDelay = Math.random()*5+'s';
-    flake.innerHTML = '❄';
-    document.body.appendChild(flake);
-  }
+// Criar flocos de neve em camadas
+const numFlakes = 100;
+for(let i=0;i<numFlakes;i++){
+  const flake = document.createElement('div');
+  flake.className = 'flake';
+  flake.style.left = Math.random()*100+'vw';
+  flake.style.fontSize = Math.random()*15 + 8 +'px';
+  flake.style.animationDuration = (5 + Math.random()*10)+'s';
+  flake.style.opacity = Math.random();
+  flake.style.animationDelay = Math.random()*5+'s';
+  flake.style.zIndex = Math.floor(Math.random()*5);
+  flake.innerHTML = '❄';
+  document.body.appendChild(flake);
+}
 </script>
 
 </body>
