@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Destiny Bot 🥀 Premium</title>
+<title>Destiny Bot 🥀 Cinematic</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -25,18 +25,19 @@ body{
   100%{background-position:0% 50%;}
 }
 
-/* Flocos de neve animados */
+/* Flocos de neve atrás da bolha */
 .flake{
   position:absolute;
   top:-50px;
   user-select:none;
   pointer-events:none;
   color:white;
-  text-shadow:0 0 8px rgba(255,255,255,0.8);
+  text-shadow:0 0 12px rgba(255,255,255,0.9);
   opacity:0.8;
   animation-name:fallSpin;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  z-index:1; /* atrás da bolha */
 }
 @keyframes fallSpin{
   0%{transform: translateY(-50px) rotate(0deg);}
@@ -45,17 +46,17 @@ body{
 
 /* Bolha central visível e premium */
 .bubble{
-  background-color: rgba(255,220,220,1); /* fundo mais opaco */
+  background-color: rgba(255,220,220,1); /* totalmente opaco */
   border-radius:50px;
   padding:50px 30px;
   max-width:450px;
   width:90%;
   box-shadow:
     0 25px 60px rgba(0,0,0,0.45),
-    0 0 30px rgba(255,0,0,0.6) inset,
-    0 0 25px rgba(255,255,255,0.5);
+    0 0 50px rgba(255,0,0,0.7) inset,
+    0 0 30px rgba(255,255,255,0.5);
   position:relative;
-  z-index:2;
+  z-index:999; /* garante visibilidade */
   text-align:center;
   transform: scale(0);
   opacity:0;
@@ -83,15 +84,15 @@ body{
 }
 .profile img:hover{
   transform: scale(1.1) rotate(5deg);
-  box-shadow:0 0 35px rgba(255,0,0,0.8);
+  box-shadow:0 0 45px rgba(255,0,0,0.9);
 }
 .profile h2{
   font-size:2rem;
   color:#330000;
-  text-shadow:0 0 8px rgba(255,255,255,0.6);
+  text-shadow:0 0 12px rgba(255,255,255,0.8);
 }
 
-/* Botões lado a lado com efeito premium */
+/* Botões lado a lado com neon */
 .buttons{
   display:flex;
   justify-content:space-between;
@@ -113,7 +114,7 @@ body{
   display:inline-block;
   position:relative;
   overflow:hidden;
-  box-shadow:0 5px 25px rgba(0,0,0,0.45);
+  box-shadow:0 5px 25px rgba(255,0,0,0.6);
   transition: all 0.4s ease;
 }
 .btn::before{
@@ -123,7 +124,7 @@ body{
   left:-75%;
   width:50%;
   height:100%;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.4);
   transform: skewX(-25deg);
   transition: all 0.5s ease;
 }
@@ -132,14 +133,14 @@ body{
 }
 .btn:hover{
   transform: translateY(-5px);
-  box-shadow:0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(255,0,0,0.7) inset;
+  box-shadow:0 0 30px #ff0000, 0 0 40px #ff4d4d inset;
 }
 
 /* Descrição animada */
 #descricao{
   display:none;
   margin-top:25px;
-  background-color: rgba(255,200,200,0.9);
+  background-color: rgba(255,200,200,0.95);
   padding:25px;
   border-radius:30px;
   color:#330000;
@@ -148,8 +149,9 @@ body{
   text-align:left;
   max-height:0;
   overflow:hidden;
-  transition: all 0.5s ease;
-  box-shadow:0 0 20px rgba(255,0,0,0.3);
+  transition: all 0.6s ease;
+  box-shadow:0 0 25px rgba(255,0,0,0.4);
+  z-index:999;
 }
 #descricao.show{
   display:block;
@@ -190,17 +192,18 @@ function toggleDescricao(){
   desc.classList.toggle('show');
 }
 
-// Criar flocos de neve em camadas
-const numFlakes = 100;
+// Flocos de neve cinematográficos
+const numFlakes = 120;
 for(let i=0;i<numFlakes;i++){
   const flake = document.createElement('div');
   flake.className = 'flake';
   flake.style.left = Math.random()*100+'vw';
-  flake.style.fontSize = Math.random()*15 + 8 +'px';
-  flake.style.animationDuration = (5 + Math.random()*10)+'s';
-  flake.style.opacity = Math.random();
+  flake.style.fontSize = Math.random()*18 + 8 +'px';
+  flake.style.animationDuration = (5 + Math.random()*12)+'s';
+  flake.style.opacity = Math.random()*0.9+0.2;
   flake.style.animationDelay = Math.random()*5+'s';
-  flake.style.zIndex = Math.floor(Math.random()*5);
+  flake.style.zIndex = 1; // sempre atrás da bolha
+  flake.style.textShadow = `0 0 ${Math.random()*10+5}px rgba(255,255,255,${Math.random()*0.8+0.2})`;
   flake.innerHTML = '❄';
   document.body.appendChild(flake);
 }
