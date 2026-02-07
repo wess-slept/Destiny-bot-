@@ -13,39 +13,55 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    background: linear-gradient(180deg,#b30000,#ff6666);
     overflow:hidden;
     position:relative;
+    background: linear-gradient(270deg,#b30000,#ff6666,#ff1a1a);
+    background-size:600% 600%;
+    animation: gradientBG 15s ease infinite;
   }
 
-  /* Pétalas caindo */
-  .petala{
+  @keyframes gradientBG{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+  }
+
+  /* Flocos de neve animados */
+  .flake{
     position:absolute;
-    top:-10px;
-    color:#ff4d4d;
+    top:-50px;
+    font-size:15px;
     user-select:none;
     pointer-events:none;
     opacity:0.8;
-    animation-name:fall;
+    animation-name:fallSpin;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
-  @keyframes fall{
-    0%{transform: translateY(-10px) rotate(0deg);opacity:1;}
-    100%{transform: translateY(110vh) rotate(360deg);opacity:0;}
+  @keyframes fallSpin{
+    0%{transform: translateY(-50px) rotate(0deg);}
+    100%{transform: translateY(110vh) rotate(360deg);}
   }
 
-  /* Bolha central */
+  /* Bolha central animada */
   .bubble{
-    background-color: rgba(255,150,150,0.9);
-    border-radius:40px;
+    background-color: rgba(255,180,180,0.9);
+    border-radius:50px;
     padding:50px 30px;
-    max-width:400px;
+    max-width:450px;
     width:90%;
-    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    box-shadow:0 20px 50px rgba(0,0,0,0.35);
     position:relative;
     z-index:1;
     text-align:center;
+    transform: scale(0);
+    opacity:0;
+    animation: bubbleIn 0.8s forwards;
+  }
+  @keyframes bubbleIn{
+    0%{opacity:0; transform: scale(0);}
+    60%{opacity:1; transform: scale(1.05);}
+    100%{transform: scale(1);}
   }
 
   .profile{
@@ -55,15 +71,16 @@
     gap:15px;
   }
   .profile img{
-    width:130px;
-    height:130px;
+    width:140px;
+    height:140px;
     border-radius:50%;
-    border:4px solid #ff4d4d;
+    border:5px solid #ff1a1a;
     object-fit:cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .profile img:hover{
     transform: scale(1.1) rotate(5deg);
+    box-shadow:0 0 25px rgba(255,0,0,0.6);
   }
   .profile h2{
     font-size:2rem;
@@ -75,16 +92,16 @@
     display:flex;
     justify-content:space-between;
     gap:10px;
-    margin-top:15px;
+    margin-top:20px;
     flex-wrap:wrap;
   }
   .btn{
     flex:1;
-    background-color:#ff4d4d;
+    background: linear-gradient(45deg,#ff4d4d,#ff1a1a);
     color:white;
     border:none;
     padding:12px 25px;
-    border-radius:25px;
+    border-radius:30px;
     font-size:16px;
     font-weight:700;
     cursor:pointer;
@@ -93,20 +110,20 @@
     position:relative;
     overflow:hidden;
     transition: all 0.4s ease;
-    box-shadow:0 5px 20px rgba(0,0,0,0.3);
+    box-shadow:0 5px 25px rgba(0,0,0,0.35);
   }
   .btn:hover{
     transform: translateY(-5px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+    box-shadow:0 15px 30px rgba(0,0,0,0.5);
   }
 
   /* Descrição animada */
   #descricao{
     display:none;
-    margin-top:20px;
-    background-color: rgba(255,200,200,0.8);
-    padding:20px;
-    border-radius:25px;
+    margin-top:25px;
+    background-color: rgba(255,200,200,0.85);
+    padding:25px;
+    border-radius:30px;
     color:#330000;
     font-size:14px;
     line-height:1.6;
@@ -121,7 +138,7 @@
   }
 
   @media(max-width:500px){
-    .bubble{padding:35px 20px;}
+    .bubble{padding:40px 20px;}
     .profile h2{font-size:1.6rem;}
     .btn{font-size:14px;padding:10px 20px;}
     #descricao{font-size:13px;}
@@ -154,17 +171,18 @@
     desc.classList.toggle('show');
   }
 
-  // Criar pétalas aleatórias
-  const numPetalas = 70;
-  for(let i=0;i<numPetalas;i++){
-    const petala=document.createElement('div');
-    petala.className='petala';
-    petala.style.left=Math.random()*100+'vw';
-    petala.style.fontSize=Math.random()*20+15+'px';
-    petala.style.animationDuration=(5+Math.random()*7)+'s';
-    petala.style.opacity=Math.random();
-    petala.innerHTML='🌹';
-    document.body.appendChild(petala);
+  // Criar flocos de neve animados
+  const numFlakes = 80;
+  for(let i=0;i<numFlakes;i++){
+    const flake = document.createElement('div');
+    flake.className = 'flake';
+    flake.style.left = Math.random()*100+'vw';
+    flake.style.fontSize = Math.random()*15 + 10 +'px';
+    flake.style.animationDuration = (5 + Math.random()*7)+'s';
+    flake.style.opacity = Math.random();
+    flake.style.animationDelay = Math.random()*5+'s';
+    flake.innerHTML = '❄';
+    document.body.appendChild(flake);
   }
 </script>
 
