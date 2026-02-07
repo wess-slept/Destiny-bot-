@@ -18,7 +18,7 @@
     position:relative;
   }
 
-  /* Flocos de neve */
+  /* Flocos de neve premium */
   .snowflake{
     position:absolute;
     top:-10px;
@@ -35,7 +35,7 @@
     100%{transform: translateY(110vh) rotate(360deg);opacity:0;}
   }
 
-  /* Bolha central */
+  /* Bolha central sempre visível */
   .bubble{
     background-color: rgba(255,200,200,0.9);
     border-radius:40px;
@@ -45,14 +45,10 @@
     box-shadow:0 15px 40px rgba(0,0,0,0.25);
     position:relative;
     z-index:1;
-    transform: scale(0);
-    opacity:0;
-    animation: bubbleIn 0.8s forwards;
-  }
-  @keyframes bubbleIn{
-    0%{opacity:0;transform: scale(0);}
-    60%{opacity:1;transform: scale(1.05);}
-    100%{transform: scale(1);}
+
+    /* Garantir visibilidade */
+    transform: scale(1);
+    opacity: 1;
   }
 
   .profile{
@@ -61,13 +57,23 @@
     align-items:center;
     gap:15px;
   }
-
+  .profile img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    border:4px solid #5865F2;
+    object-fit:cover;
+    transition: transform 0.3s ease;
+  }
+  .profile img:hover{
+    transform: scale(1.1) rotate(5deg);
+  }
   .profile h2{
     font-size:2rem;
     color:#333;
   }
 
-  /* Botões */
+  /* Botões premium */
   .btn{
     background-color:#5865F2;
     color:white;
@@ -137,7 +143,8 @@
 
 <div class="bubble">
   <div class="profile">
-    <!-- Sem imagem de perfil por enquanto -->
+    <!-- Sem imagem por enquanto -->
+    <!-- <img src="https://share.google/rYiwBnFStS2MU5d5R" alt="Perfil do Bot"> -->
     <h2>Destiny Bot 🥀</h2>
     <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1441831952410738748&permissions=8&scope=bot%20applications.commands" target="_blank">Adicionar ao Servidor</a>
     <button class="btn" onclick="toggleDescricao()">Descrição</button>
