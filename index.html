@@ -17,6 +17,7 @@ body{
   background: linear-gradient(270deg,#b30000,#ff0000,#ff6666,#ff1a1a);
   background-size:800% 800%;
   animation: gradientBG 20s ease infinite;
+  position: relative;
 }
 
 @keyframes gradientBG{
@@ -28,7 +29,7 @@ body{
 /* Bolha central fixa no topo */
 .bubble{
   position: fixed;
-  z-index: 1000;
+  z-index: 1000; /* Sempre à frente */
   top:50%;
   left:50%;
   transform: translate(-50%, -50%);
@@ -141,43 +142,23 @@ body{
   vertical-align:middle;
 }
 
-/* Flocos de neve 3D */
+/* Flocos de neve atrás da bolha */
 .flake{
   position:absolute;
   user-select:none;
   pointer-events:none;
   color:white;
   text-shadow:0 0 12px rgba(255,255,255,0.9);
-  animation-name:fallSpin;
+  animation-name:fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   opacity:0.8;
   will-change: transform, opacity;
+  z-index:500; /* sempre atrás da bolha */
 }
-@keyframes fallSpin{
-  0%{transform: translateY(-50px) rotate(0deg);}
-  100%{transform: translateY(110vh) rotate(360deg);}
-}
-
-/* Pétalas de rosa */
-.rose{
-  position:absolute;
-  width:25px;
-  height:25px;
-  background: url('https://i.ibb.co/2nJp7kC/petal-fall.gif') no-repeat center;
-  background-size: contain;
-  top:-30px;
-  user-select:none;
-  pointer-events:none;
-  opacity:0.8;
-  animation-name:fallRose;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  z-index:2; /* passa sobre alguns flocos, mas atrás da bolha */
-}
-@keyframes fallRose{
-  0%{transform: translateY(-30px) rotate(0deg);}
-  100%{transform: translateY(110vh) rotate(360deg);}
+@keyframes fall{
+  0%{transform: translateY(-50px);}
+  100%{transform: translateY(110vh);}
 }
 
 @media(max-width:500px){
@@ -214,7 +195,7 @@ function toggleDescricao(){
   desc.classList.toggle('show');
 }
 
-// Flocos de neve 3D
+// Flocos de neve
 const numFlakes = 120;
 for(let i=0;i<numFlakes;i++){
   const flake = document.createElement('div');
@@ -224,11 +205,8 @@ for(let i=0;i<numFlakes;i++){
   flake.style.animationDuration = (5 + Math.random()*10)+'s';
   flake.style.opacity = Math.random()*0.8+0.2;
   flake.style.animationDelay = Math.random()*5+'s';
-  flake.style.zIndex = Math.random() < 0.5 ? 9999 : 500;
-  flake.innerHTML = '❄';
   document.body.appendChild(flake);
 }
-
 </script>
 
 </body>
