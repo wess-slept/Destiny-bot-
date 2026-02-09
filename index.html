@@ -3,72 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Destiny Bot 🥀 Cinematic Ultra</title>
+<title>Destiny Bot 🥀 3D Cinematic</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
   font-family:'Poppins',sans-serif;
   height:100vh;
-  overflow:hidden;
   display:flex;
   justify-content:center;
   align-items:center;
-  background: linear-gradient(270deg,#8b0000,#ff0000,#ff4d4d,#ff1a1a);
+  overflow:hidden;
+  background: linear-gradient(270deg,#b30000,#ff0000,#ff6666,#ff1a1a);
   background-size:800% 800%;
-  animation: gradientBG 25s ease infinite;
-  position: relative;
+  animation: gradientBG 20s ease infinite;
 }
 
-/* Fundo degradê animado */
 @keyframes gradientBG{
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
 
-/* Bolha central premium */
+/* Bolha central fixa */
 .bubble{
-  position: fixed;
+  position: relative;
   z-index: 1000;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255,220,220,0.95);
-  border-radius:60px;
-  padding:50px 35px;
-  max-width:480px;
+  background-color: rgba(255,220,220,1);
+  border-radius:50px;
+  padding:50px 30px;
+  max-width:450px;
   width:90%;
-  text-align:center;
   box-shadow:
     0 25px 60px rgba(0,0,0,0.45),
-    0 0 60px rgba(255,0,0,0.7) inset,
-    0 0 40px rgba(255,255,255,0.5);
-  animation: floatBubble 4s ease-in-out infinite, bubbleGlow 3s ease-in-out infinite alternate;
+    0 0 50px rgba(255,0,0,0.7) inset,
+    0 0 30px rgba(255,255,255,0.5);
+  text-align:center;
+  transition: transform 0.3s ease;
 }
-.bubble:hover{transform: translate(-50%, -50%) scale(1.08);}
-
-/* Bolha flutuando */
-@keyframes floatBubble{
-  0%,100%{transform: translate(-50%, -50%) translateY(0);}
-  50%{transform: translate(-50%, -50%) translateY(-15px);}
-}
-
-/* Efeito brilho suave na bolha */
-@keyframes bubbleGlow{
-  0%{box-shadow:
-    0 25px 60px rgba(0,0,0,0.45),
-    0 0 60px rgba(255,0,0,0.7) inset,
-    0 0 40px rgba(255,255,255,0.5);}
-  50%{box-shadow:
-    0 25px 70px rgba(0,0,0,0.5),
-    0 0 80px rgba(255,0,0,0.8) inset,
-    0 0 50px rgba(255,255,255,0.7);}
-  100%{box-shadow:
-    0 25px 60px rgba(0,0,0,0.45),
-    0 0 60px rgba(255,0,0,0.7) inset,
-    0 0 40px rgba(255,255,255,0.5);}
-}
+.bubble:hover{transform: scale(1.05);}
 
 /* Perfil do bot */
 .profile{
@@ -78,29 +51,29 @@ body{
   gap:15px;
 }
 .profile img{
-  width:150px;
-  height:150px;
+  width:140px;
+  height:140px;
   border-radius:50%;
   border:5px solid #ff1a1a;
   object-fit:cover;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .profile img:hover{
-  transform: scale(1.15) rotate(5deg);
-  box-shadow:0 0 60px rgba(255,0,0,0.9);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow:0 0 45px rgba(255,0,0,0.9);
 }
 .profile h2{
-  font-size:2.2rem;
+  font-size:2rem;
   color:#330000;
-  text-shadow:0 0 14px rgba(255,255,255,0.85);
+  text-shadow:0 0 12px rgba(255,255,255,0.8);
 }
 
-/* Botões lado a lado */
+/* Botões lado a lado com ícones */
 .buttons{
   display:flex;
   justify-content:space-between;
-  gap:15px;
-  margin-top:25px;
+  gap:10px;
+  margin-top:20px;
   flex-wrap:wrap;
 }
 .btn{
@@ -108,13 +81,15 @@ body{
   background: linear-gradient(45deg,#ff4d4d,#ff1a1a);
   color:white;
   border:none;
-  padding:15px 30px;
-  border-radius:35px;
-  font-size:17px;
+  padding:12px 25px;
+  border-radius:30px;
+  font-size:16px;
   font-weight:700;
   cursor:pointer;
   text-decoration:none;
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   position:relative;
   overflow:hidden;
   box-shadow:0 5px 25px rgba(255,0,0,0.6);
@@ -127,7 +102,7 @@ body{
   left:-75%;
   width:50%;
   height:100%;
-  background: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.4);
   transform: skewX(-25deg);
   transition: all 0.5s ease;
 }
@@ -136,16 +111,27 @@ body{
 }
 .btn:hover{
   transform: translateY(-5px);
-  box-shadow:0 0 35px #ff0000, 0 0 45px #ff4d4d inset;
+  box-shadow:0 0 30px #ff0000, 0 0 40px #ff4d4d inset;
+}
+.btn-icon{
+  width:20px;
+  height:20px;
+  vertical-align:middle;
+  margin-right:8px;
+  filter: brightness(1.2);
+  transition: transform 0.3s ease;
+}
+.btn:hover .btn-icon{
+  transform: scale(1.2);
 }
 
 /* Descrição animada */
 #descricao{
   display:none;
-  margin-top:30px;
+  margin-top:25px;
   background-color: rgba(255,200,200,0.95);
   padding:25px;
-  border-radius:35px;
+  border-radius:30px;
   color:#330000;
   font-size:14px;
   line-height:1.6;
@@ -153,58 +139,42 @@ body{
   max-height:0;
   overflow:hidden;
   transition: all 0.6s ease;
-  box-shadow:0 0 30px rgba(255,0,0,0.4);
+  box-shadow:0 0 25px rgba(255,0,0,0.4);
   z-index:1001;
 }
 #descricao.show{
   display:block;
-  max-height:550px;
+  max-height:500px;
 }
 #descricao img{
   width:20px;
   vertical-align:middle;
 }
 
-/* Flocos de neve 3D parallax atrás da bolha */
+/* Flocos de neve 3D atrás da bolha */
 .flake{
   position:absolute;
+  top:0;
   user-select:none;
   pointer-events:none;
   color:white;
-  text-shadow:0 0 15px rgba(255,255,255,0.9);
-  animation-name:fall;
+  text-shadow:0 0 12px rgba(255,255,255,0.9);
+  animation-name:fallSpin;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   opacity:0.8;
   will-change: transform, opacity;
+  z-index:0;
 }
-
-/* Animação queda flocos */
-@keyframes fall{
-  0%{transform: translateY(0);}
-  100%{transform: translateY(110vh);}
-}
-
-/* Partículas de luz extra */
-.particle{
-  position:absolute;
-  width:2px;
-  height:2px;
-  background:white;
-  border-radius:50%;
-  opacity:0.8;
-  animation: drift 8s linear infinite;
-}
-@keyframes drift{
-  0%{transform: translate(0,0);}
-  50%{transform: translate(30px,50vh);}
-  100%{transform: translate(-20px,110vh);}
+@keyframes fallSpin{
+  0%{transform: translateY(-50px) rotate(0deg);}
+  100%{transform: translateY(110vh) rotate(360deg);}
 }
 
 @media(max-width:500px){
   .bubble{padding:40px 20px;}
-  .profile h2{font-size:1.8rem;}
-  .btn{font-size:15px;padding:12px 20px;}
+  .profile h2{font-size:1.6rem;}
+  .btn{font-size:14px;padding:10px 20px;}
   #descricao{font-size:13px;}
 }
 </style>
@@ -216,14 +186,20 @@ body{
     <img src="https://images2.alphacoders.com/118/1184200.jpg" alt="Perfil do Bot">
     <h2>Destiny Bot 🥀</h2>
     <div class="buttons">
-      <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1441831952410738748&permissions=8&scope=bot%20applications.commands" target="_blank">Adicionar Bot</a>
-      <button class="btn" onclick="toggleDescricao()">Descrição</button>
+      <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1441831952410738748&permissions=8&scope=bot%20applications.commands" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" class="btn-icon">
+        Adicionar Bot
+      </a>
+      <button class="btn" onclick="toggleDescricao()">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Info" class="btn-icon">
+        Descrição
+      </button>
     </div>
   </div>
   <div id="descricao">
     <strong>Dono:</strong> ʷᵉˢˢ 命<br>
     <strong>Contato:</strong> Discord DM<br>
-    <strong>Linguagem:</strong> JavaScript <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JS Icon"><br>
+    <strong>Linguagem:</strong> JavaScript <img src="https://icons8.com.br/icon/Nkym0Ujb8VGI/javascript" alt="JS Icon"><br>
     <strong>Comandos:</strong> 22 (moderação, ticket, embed, atualização)<br>
     <strong>Bot 24/7:</strong> Sim
   </div>
@@ -235,32 +211,18 @@ function toggleDescricao(){
   desc.classList.toggle('show');
 }
 
-// Flocos de neve parallax 3D
+// Flocos de neve 3D atrás da bolha
 const numFlakes = 120;
 for(let i=0;i<numFlakes;i++){
   const flake = document.createElement('div');
   flake.className = 'flake';
   flake.style.left = Math.random()*100+'vw';
-  flake.style.fontSize = (Math.random()*18 + 6)+'px';
-  flake.style.opacity = Math.random()*0.8+0.2;
-  flake.style.top = '-30px'; // começa acima da tela
+  flake.style.fontSize = Math.random()*16 + 8 +'px';
   flake.style.animationDuration = (5 + Math.random()*10)+'s';
+  flake.style.opacity = Math.random()*0.8+0.2;
   flake.style.animationDelay = Math.random()*5+'s';
+  flake.innerHTML = '❄';
   document.body.appendChild(flake);
-}
-
-// Partículas de luz extras
-const numParticles = 40;
-for(let i=0;i<numParticles;i++){
-  const p = document.createElement('div');
-  p.className='particle';
-  p.style.left = Math.random()*100+'vw';
-  p.style.top = Math.random()*100+'vh';
-  p.style.opacity = Math.random()*0.5+0.3;
-  p.style.animationDuration = (5 + Math.random()*8)+'s';
-  p.style.width = (Math.random()*2+1)+'px';
-  p.style.height = (Math.random()*2+1)+'px';
-  document.body.appendChild(p);
 }
 </script>
 
