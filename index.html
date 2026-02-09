@@ -114,15 +114,15 @@ body{
   box-shadow:0 0 30px #ff0000, 0 0 40px #ff4d4d inset;
 }
 .btn-icon{
-  width:20px;
-  height:20px;
+  width:18px;
+  height:18px;
   vertical-align:middle;
   margin-right:8px;
-  filter: brightness(1.2);
+  filter: brightness(1.2) opacity(0.85);
   transition: transform 0.3s ease;
 }
 .btn:hover .btn-icon{
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
 /* Descrição animada */
@@ -147,8 +147,9 @@ body{
   max-height:500px;
 }
 #descricao img{
-  width:20px;
+  width:18px;
   vertical-align:middle;
+  opacity:0.9;
 }
 
 /* Flocos de neve 3D atrás da bolha */
@@ -181,6 +182,9 @@ body{
 </head>
 <body>
 
+<!-- ÁUDIO DE FUNDO -->
+<audio id="transformAudio" src="https://cdn.discordapp.com/attachments/1118957911536844915/1470272894578720821/takt_op_destiny.mp3" preload="auto" loop autoplay></audio>
+
 <div class="bubble">
   <div class="profile">
     <img src="https://images2.alphacoders.com/118/1184200.jpg" alt="Perfil do Bot">
@@ -199,7 +203,7 @@ body{
   <div id="descricao">
     <strong>Dono:</strong> ʷᵉˢˢ 命<br>
     <strong>Contato:</strong> Discord DM<br>
-    <strong>Linguagem:</strong> JavaScript <img src="https://icons8.com.br/icon/Nkym0Ujb8VGI/javascript" alt="JS Icon"><br>
+    <strong>Linguagem:</strong> JavaScript <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JS Icon"><br>
     <strong>Comandos:</strong> 22 (moderação, ticket, embed, atualização)<br>
     <strong>Bot 24/7:</strong> Sim
   </div>
